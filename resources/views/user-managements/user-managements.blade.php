@@ -1,17 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 @include('main.header');
 
 <body class="dark-edition">
   <div class="wrapper ">
-    @include('main.sidebar');
+      @include('main.sidebar');
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
         <div class="container-fluid" >
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)" style="margin-right : 50px">Outlet</a>
+            <a class="navbar-brand" href="javascript:void(0)" style="margin-right : 50px">User Managements</a>
           </div>
             <form class="navbar-form" >
               <div class="input-group no-border">
@@ -29,7 +29,9 @@
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-              <a class="btn btn-primary pull-right" href="/outlet/create">Add</a>
+            @if(session('user')['role']==1)
+              <a class="btn btn-primary pull-right" href="/user-management/create">Add</a>
+            @endif
           </div>
         </div>
       </nav>
@@ -42,20 +44,24 @@
                 <table class="table table-hover">
                   <thead class="">
                     <th>No</th>
+                    <th>Username</th>
                     <th>Name</th>
-                    <th>Owner</th>
-                    <th>Status</th>
+                    <th>No.Hp</th>
+                    <th>Email</th>
+                    <th>Role</th>
                   </thead>
                   <tbody>
-                  @foreach($outlet_data as $data => $list)
+                    @foreach($user as $data => $list)
                     @php
                     $data+=1;
                     @endphp
                       <tr>
                           <td class="text-left no-wrap" width="1">{{$data}}</td>
-                          <td class="text-left no-wrap" width="1" ><a href='/outlet/{{$list->id_outlet}}'>{{$list->nama_outlet}}</a></td>
-                          <td class="text-left no-wrap" width="1" >{{$list->owner}}</td>
-                          <td class="text-left no-wrap" width="1" >{{$list->status == 1 ? 'Active' : 'In-Active'}}</td>
+                          <td class="text-left no-wrap" width="1" ><a href='/user-management/{{$list->id_user}}'>{{$list->username}}</a></td>
+                          <td class="text-left no-wrap" width="1" >{{$list->nama_user}}</td>
+                          <td class="text-left no-wrap" width="1" >{{$list->no_hp}}</td>
+                          <td class="text-left no-wrap" width="1" >{{$list->email}}</td>
+                          <td class="text-left no-wrap" width="1" >{{$list->role_user == 1 ? 'Admin' : 'Operator'}}</td>
                       </tr>
                     @endforeach
                   </tbody>

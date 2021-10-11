@@ -15,7 +15,7 @@
             <a class="navbar-brand" href="javascript:void(0)" style="margin-right : 50px">User Managements</a>
           </div>
           <div class="collapse navbar-collapse justify-content-end">
-              <a class="btn btn-primary pull-right" style="margin-right:20px;" id="back" href="/user-managements/{{$data->id_user}}" ">Back</a>
+              <a class="btn btn-primary pull-right" style="margin-right:20px;" id="back" href="/user-managements/{{$user->id_user}}">Back</a>
           </div>
         </div>
       </nav>
@@ -29,13 +29,13 @@
                   <p class="card-category">Detail User</p>
                 </div>
                 <div class="card-body">
-                  <form enctype="multipart/form-data" action="/user-managements/update/{{$data->id_user}}" method="post" id="user-update">
+                  <form enctype="multipart/form-data" action="/user-management/update/{{$user->id_user}}" method="post" id="user-update">
                     @csrf  
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group bmd-form-group">
                           <label class="bmd-label-floating">Nama</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" name="nama" value = "{{$data->nama_user}}" >
+                          <input style="background-color:transparent;" type="text" class="form-control" name="nama" value = "{{$user->nama_user}}" >
                         </div>
                       </div>
                     </div>
@@ -43,7 +43,7 @@
                       <div class="col-md-12">
                         <div class="form-group bmd-form-group">
                           <label class="bmd-label-floating">User Name</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" name="username" value = "{{$data->username}}" >
+                          <input style="background-color:transparent;" type="text" class="form-control" name="username" value = "{{$user->username}}" >
                         </div>
                       </div>
                     </div>
@@ -51,7 +51,7 @@
                       <div class="col-md-12">
                         <div class="form-group bmd-form-group">
                           <label class="bmd-label-floating">Password</label>
-                          <input style="background-color:transparent;" type="password" class="form-control" name="password" value = "{{$data->password}}" readonly>
+                          <input style="background-color:transparent;" type="password" class="form-control" name="password" value = "{{$user->password}}" readonly>
                         </div>
                       </div>
                     </div>
@@ -59,7 +59,7 @@
                       <div class="col-md-12">
                         <div class="form-group bmd-form-group">
                           <label class="bmd-label-floating">No Hp</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" name="nohp" value = "{{$data->no_hp}}" >
+                          <input style="background-color:transparent;" type="text" class="form-control" name="nohp" value ="{{$user->no_hp}}">
                         </div>
                       </div>
                     </div>
@@ -67,7 +67,7 @@
                       <div class="col-md-12">
                         <div class="form-group bmd-form-group">
                           <label class="bmd-label-floating">Email</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" name="email" value = "{{$data->email}}" >
+                          <input style="background-color:transparent;" type="text" class="form-control" name="email" value = "{{$user->email}}" >
                         </div>
                       </div>
                     </div>
@@ -78,15 +78,33 @@
                     <div class="row" style="width : 300px">
                       <div class="col-md-4">
                         <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating" >CEO</label>
+                          <label class="bmd-label-floating" >Admin</label>
                         </div>
-                        <input type="radio" class="form-control" style="width : 100px; height : 20px" name="role" value="1" checked>
+                        <input type="radio" class="form-control" style="width : 100px; height : 20px" name="role" value="1" {{$user->role_user == 1 ? 'checked' : ''}}>
                       </div>
                       <div class="col-md-4" >
                         <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Admin</label>
+                          <label class="bmd-label-floating">Operator</label>
                         </div>
-                        <input type="radio" class="form-control" style="width : 150px; height : 20px" name="role" value="2">
+                        <input type="radio" class="form-control" style="width : 150px; height : 20px" name="role" value="2" {{$user->role_user == 2 ? 'checked' : ''}}>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="form-group bmd-form-group is-focused">
+                        <label class="bmd-label-floating">Status</label>
+                    </div>
+                    <div class="row" style="width : 300px">
+                      <div class="col-md-4">
+                        <div class="form-group bmd-form-group">
+                          <label class="bmd-label-floating" >Active</label>
+                        </div>
+                        <input type="radio" class="form-control" style="width : 100px; height : 20px" name="status" value="1" {{$user->user_status == 1 ? 'checked' : ''}}>
+                      </div>
+                      <div class="col-md-4" >
+                        <div class="form-group bmd-form-group">
+                          <label class="bmd-label-floating">In-Active</label>
+                        </div>
+                        <input type="radio" class="form-control" style="width : 150px; height : 20px" name="status" value="2" {{$user->user_status == 2 ? 'checked' : ''}}>
                       </div>
                     </div>
                     </div>

@@ -15,7 +15,7 @@
             <a class="navbar-brand" href="javascript:void(0)" style="margin-right : 50px">Inventories</a>
           </div>
           <div class="collapse navbar-collapse justify-content-end">
-              <a class="btn btn-primary pull-right" style="margin-right:20px;" id="back" href="/inventories" ">Back</a>
+              <a class="btn btn-primary pull-right" style="margin-right:20px;" id="back" href="/inventories">Back</a>
           </div>
         </div>
       </nav>
@@ -26,103 +26,145 @@
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title">Inventories Edit</h4>
-                  <p class="card-category">Edit Data Barang</p>
+                  <p class="card-category">Edit Data Mobil</p>
                 </div>
                 <div class="card-body">
-                  <form enctype="multipart/form-data" action="/inventories/update/{{$data->id_barang}}" method="post" id="inventories-update">
+                  <form enctype="multipart/form-data" action="/inventories/update/{{$mobil->id_mobil}}" method="post" id="inventories-update">
                     @csrf  
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Kode Barang</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" name="kode_barang" value = "{{$data->kode_barang}}" >
+                          <label class="bmd-label-floating">Nama Mobil</label>
+                          <input style="background-color:transparent;" type="text" class="form-control" name="nama" value = "{{$mobil->nama_mobil}}" >
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Nama Barang</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" name="nama_barang" value = "{{$data->nama_barang}}" >
+                          <label class="bmd-label-floating">Merk Mobil</label>
+                          <input style="background-color:transparent;" type="text" class="form-control" name="merk" value = "{{$mobil->merk_mobil}}" >
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Harga Barang</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" name="harga_barang" value = "{{$data->harga_barang}}" >
+                          <label class="bmd-label-floating">Harga Sewa</label>
+                          <input style="background-color:transparent;" type="text" class="form-control" name="harga" value = "{{$mobil->nominal}}" >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group bmd-form-group">
+                          <label class="bmd-label-floating">Stok</label>
+                          <input style="background-color:transparent;" type="text" class="form-control" name="stok" value = "{{$mobil->stok}}" >
                         </div>
                       </div>
                     </div>
                     <br>
                     <div class="form-group bmd-form-group is-focused">
-                        <label class="bmd-label-floating">Kategori Barang</label>
+                        <label class="bmd-label-floating">Jenis Mobil</label>
                     </div>
                     <div class="row" style="width : 300px">
                       <div class="col-md-4">
                         <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating" >Tas</label>
+                          <label class="bmd-label-floating" >Besar</label>
                         </div>
-                        <input type="radio" class="form-control" style="width : 100px; height : 20px" name="kategori" value ="1" {{$data->kategori_barang == 1 ? 'checked' :''}}>
+                        <input type="radio" class="form-control" style="width : 100px; height : 20px" name="jenis" value ="1" {{$mobil->jenis_mobil == 1 ? 'checked' :''}}>
                       </div>
                       <div class="col-md-4" >
                         <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Dompet</label>
+                          <label class="bmd-label-floating">Sedang</label>
                         </div>
-                        <input type="radio" class="form-control" style="width : 150px; height : 20px" name="kategori" value ="2" {{$data->kategori_barang == 2 ? 'checked' :''}}>
+                        <input type="radio" class="form-control" style="width : 150px; height : 20px" name="jenis" value ="2" {{$mobil->jenis_mobil == 2 ? 'checked' :''}}>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Jam</label>
+                          <label class="bmd-label-floating">Kecil</label>
                         </div>
-                        <input type="radio" class="form-control" style="width : 100px; height : 20px" name="kategori" value ="3" {{$data->kategori_barang == 3 ? 'checked' :''}}>
-                      </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Material</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" name="material" value = "{{$data->material_barang}}" >
-                        </div>
+                        <input type="radio" class="form-control" style="width : 100px; height : 20px" name="jenis" value ="3" {{$mobil->jenis_mobil == 3 ? 'checked' :''}}>
                       </div>
                     </div>
                     <br>
                     <div class="form-group bmd-form-group is-focused">
-                        <label class="bmd-label-floating">Ukuran Barang</label>
+                        <label class="bmd-label-floating">Status</label>
                     </div>
-                    <div class="row">
+                    <div class="row" style="width : 300px">
                       <div class="col-md-4">
                         <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Length</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" name="panjang" value = "{{isset($data->panjang_barang) ? $data->panjang_barang : '-'}}" >
+                          <label class="bmd-label-floating" >Active</label>
                         </div>
+                        <input type="radio" class="form-control" style="width : 100px; height : 20px" name="status" value ="1" {{$mobil->status == 1 ? 'checked' :''}}>
                       </div>
-                      <div class="col-md-4">
-                        <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Width</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" name="lebar" value = "{{isset($data->lebar_barang) ? $data->lebar_barang : '-'}}" >
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Height</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" name="tinggi" value = "{{isset($data->tinggi_barang) ? $data->tinggi_barang : '-'}}" >
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
                       <div class="col-md-4" >
                         <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Stok</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" style="width : 30px" name="stok" value = "{{$data->stock_barang}}" >
+                          <label class="bmd-label-floating">In-Active</label>
+                        </div>
+                        <input type="radio" class="form-control" style="width : 150px; height : 20px" name="status" value ="2" {{$mobil->status == 2 ? 'checked' :''}}>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-md-4 col-sm-4">
+                        <div>
+                          <span class="btn btn-primary btn-round btn-file">
+                            <span class="fileinput-new">Foto Mobil</span>
+                            <input id ="files" type="file" name="attachments[]" multiple>
                         </div>
                       </div>
                     </div>
+                    
                     </div>
                     <input type="submit" class="btn btn-primary pull-right" id="update" href="#" onClick="updateProd()" value ="Update">
                   </form>
+                  
+                  <div class="row">
+                    
+                    <div class="col-md-12">
+                            <div class="card">
+                            <div class="card-header card-header-icon card-header-primary">
+                                <h4 class="card-title ">Foto Mobil</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                  <table class="table">
+                                      <thead class=" text-primary">
+                                          <th>Gambar</th>
+                                          <th>Action</th>
+                                      </thead>
+                                      <tbody>
+                                      @foreach($img_data as $data => $list)
+                                          @php
+                                          $name = isset($list->nama_file) ? $list->nama_file : null;
+                                          $load = '/img/mobil/'.$name;
+                                          @endphp
+                                          <tr>
+                                              <td class="text-left no-wrap" width="1">
+                                                  <div class="img-container" >
+                                                  <a href="{{$load}}" target="_blank"><img style="width:300px;height:300x;" src="{{$load}}" alt="..."></a>
+                                                  </div>
+                                              </td>
+                                              <td class="text-left no-wrap" width="1">
+                                                  <div class="img-container" >
+                                                  <form action="/delete_image" method="post">
+                                                  @csrf
+                                                    <input type="hidden" name="id_mobil" value="{{$list->id_mobil}}">
+                                                    <input type="hidden" name="id_file" value="{{$list->id_file}}">
+                                                    <input type="hidden" value ="{{$load}}" name="loct">
+                                                    <input type="submit" id="hapus" value ="Hapus" name="hapus">
+                                                    </form>
+                                                  </div>
+                                              </td>
+                                          </tr>
+                                      @endforeach
+                                      </tbody>
+                                  </table>
+                                </div>
+                            </div>
+                      </div>
+                    </div> 
                 </div>
               </div>
             </div>

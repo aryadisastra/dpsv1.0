@@ -29,7 +29,7 @@
                   <p class="card-category">Tambah Data User</p>
                 </div>
                 <div class="card-body">
-                  <form enctype="multipart/form-data" action="/user-managements/store" method="post" id="user-create">  
+                  <form enctype="multipart/form-data" action="/user-management/store" method="post" id="user-create">  
                   @csrf
                     <div class="row">
                       <div class="col-md-12">
@@ -78,13 +78,13 @@
                     <div class="row" style="width : 300px">
                       <div class="col-md-4">
                         <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating" >CEO</label>
+                          <label class="bmd-label-floating" >Admin</label>
                         </div>
                         <input type="radio" class="form-control" style="width : 100px; height : 20px" name="role" value="1" checked>
                       </div>
                       <div class="col-md-4" >
                         <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Admin</label>
+                          <label class="bmd-label-floating">Operator</label>
                         </div>
                         <input type="radio" class="form-control" style="width : 150px; height : 20px" name="role" value="2">
                       </div>

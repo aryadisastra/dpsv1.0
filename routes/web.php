@@ -34,41 +34,23 @@ Route::post('/inventories/store', 'InventoriesController@store');
 Route::get('/inventories/{id}', 'InventoriesController@show');
 Route::get('/inventories/edit/{id}', 'InventoriesController@edit');
 Route::post('/inventories/update/{id}', 'InventoriesController@update');
+Route::post('/delete_image', 'InventoriesController@delete_image');
 //======================INVENTORIES==============================
 
 //======================USER_MANAGEMENTS==============================
-Route::resource('/user-managements', 'UserManagementController');
-Route::get('/user-managements/create', 'UserManagementController@create');
-Route::post('/user-managements/store', 'UserManagementController@store');
-Route::get('/user-managements/{id}', 'UserManagementController@show');
-Route::get('/user-managements/edit/{id}', 'UserManagementController@edit');
-Route::post('/user-managements/update/{id}', 'UserManagementController@update');
+Route::resource('/user-management', 'UserManagementController');
+Route::get('/user-management/create', 'UserManagementController@create');
+Route::post('/user-management/store', 'UserManagementController@store');
+Route::get('/user-management/{id}', 'UserManagementController@show');
+Route::get('/user-management/edit/{id}', 'UserManagementController@edit');
+Route::post('/user-management/update/{id}', 'UserManagementController@update');
 //======================USER_MANAGEMENTS==============================
 
-//======================SElLS==============================
-Route::resource('/sells', 'SellsController');
-Route::get('/sells/create', 'SellsController@create');
-Route::post('/sells/store', 'SellsController@store');
-Route::get('/sells/{id}', 'SellsControllerr@show');
-Route::get('/sells/edit/{id}', 'SellsController@edit');
-Route::post('/sells/update/{id}', 'SellsController@update');
-//======================SEllS==============================
-
-//======================Outlet==============================
-Route::resource('/outlet', 'outletController');
-Route::get('/outlet/create', 'outletController@create');
-Route::post('/outlet/store', 'outletController@store');
-Route::get('/outlet/{id}', 'outletControllerr@show');
-Route::get('/outlet/edit/{id}', 'outletController@edit');
-Route::post('/outlet/update/{id}', 'outletController@update');
-//======================outlet==============================
-
-//======================PAYMENTS==============================
-Route::resource('/payments', 'PaymentController');
-Route::get('/payments-create', 'PaymentController@create');
-//======================PAYMENTS==============================
-
-//======================PARTNERS==============================
-Route::resource('/partners', 'PartnersController');
-Route::get('/partners-create', 'PartnersController@create');
-//======================PARTNERS==============================
+//======================REQUEST==============================
+Route::resource('/request', 'PenyewaanController');
+Route::get('/export', 'PenyewaanController@export');
+Route::get('/request/create', 'PenyewaanController@create');
+Route::post('/request/up_status', 'PenyewaanController@store');
+Route::get('/request/{id}', 'PenyewaanController@show');
+Route::post('/request/update/{id}', 'PenyewaanController@update');
+//======================REQUEST==============================

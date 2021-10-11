@@ -17,7 +17,7 @@
           </div>
           <div class="collapse navbar-collapse justify-content-end">
               <a class="btn btn-primary pull-right" style="margin-right:20px;" id="back" href="/inventories" ">Back</a>
-              <a class="btn btn-primary pull-right" id="edit" href="/inventories/edit/{{$data->id_barang}}" >Edit</a>
+              <a class="btn btn-primary pull-right" id="edit" href="/inventories/edit/{{$mobil->id_mobil}}" >Edit</a>
           </div>
         </div>
       </nav>
@@ -36,74 +36,83 @@
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Kode Barang</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" name="kode_barang" value = "{{$data->kode_barang}}" readonly>
+                          <label class="bmd-label-floating">Nama Mobil</label>
+                          <input style="background-color:transparent;" type="text" class="form-control" name="kode_barang" value = "{{$mobil->nama_mobil}}" readonly>
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Nama Barang</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" name="nama_barang" value = "{{$data->nama_barang}}" readonly>
+                          <label class="bmd-label-floating">Jenis Mobil</label>
+                          <input style="background-color:transparent;" type="text" class="form-control" name="nama_barang" value = "{{$mobil->jenis_mobil == 1 ? 'Besar' : ($mobil->jenis_mobil == 2 ? 'Sedang' : 'Kecil')}}" readonly>
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Harga Barang</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" name="harga_barang" value = "Rp.{{$data->harga_barang}}" readonly>
+                          <label class="bmd-label-floating">Merk Mobil</label>
+                          <input style="background-color:transparent;" type="text" class="form-control" name="harga_barang" value = "{{$mobil->merk_mobil}}" readonly>
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Kategori Barang</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" name="harga_barang" value = "{{$data->kategori_barang == 1 ? 'Tas' : ($data->kategori_barang == 2 ? 'Dompet' : 'Jam')}}" readonly>
+                          <label class="bmd-label-floating">Sewa Per Hari</label>
+                          <input style="background-color:transparent;" type="text" class="form-control" name="harga_barang" value = "Rp.{{$mobil->nominal}}" readonly>
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
-                        <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Material</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" name="material" value = "{{$data->material_barang}}" readonly>
-                        </div>
-                      </div>
-                    </div>
-                    <br>
-                    <div class="form-group bmd-form-group is-focused">
-                        <label class="bmd-label-floating">Ukuran Barang</label>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Length</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" name="panjang" value = "{{isset($data->panjang_barang) ? $data->panjang_barang : '-'}}" readonly>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Width</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" name="lebar" value = "{{isset($data->lebar_barang) ? $data->lebar_barang : '-'}}" readonly>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group bmd-form-group">
-                          <label class="bmd-label-floating">Height</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" name="tinggi" value = "{{isset($data->tinggi_barang) ? $data->tinggi_barang : '-'}}" readonly>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-4" >
                         <div class="form-group bmd-form-group">
                           <label class="bmd-label-floating">Stok</label>
-                          <input style="background-color:transparent;" type="text" class="form-control" style="width : 30px" name="stok" value = "{{$data->stock_barang}}" readonly>
+                          <input style="background-color:transparent;" type="text" class="form-control" name="material" value = "{{$mobil->stok}}" readonly>
                         </div>
                       </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group bmd-form-group">
+                          <label class="bmd-label-floating">Status</label>
+                          <input style="background-color:transparent;" type="text" class="form-control" name="material" value = "{{$mobil->status == 1 ? 'Active' : 'In-Active'}}" readonly>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-12">
+                            <div class="card">
+                            <div class="card-header card-header-icon card-header-primary">
+                                <h4 class="card-title ">Foto Mobil</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                  <table class="table">
+                                      <thead class=" text-primary">
+                                          <tr>Gambar</tr>
+                                      </thead>
+                                      <tbody>
+                                      @foreach($img_data as $data => $list)
+                                          @php
+                                          $name = isset($list->nama_file) ? $list->nama_file : null;
+                                          $load = '/img/mobil/'.$name;
+                                          @endphp
+                                          <tr>
+                                              <td class="text-left no-wrap" width="1">
+                                                  <div class="img-container" >
+                                                  <a href="{{$load}}" target="_blank"><img style="width:300px;height:300x;" src="{{$load}}" alt="..."></a>
+                                                  </div>
+                                              </td>
+                                          </tr>
+                                      @endforeach
+                                      </tbody>
+                                  </table>
+                                </div>
+                            </div>
+                      </div>
+                    </div>
                     </div>
                     </div>
                   </form>
